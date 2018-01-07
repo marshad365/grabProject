@@ -75,7 +75,7 @@ if(isset($_POST['form_key'])){
                             <div class="main-box section-light create-login-panel ">
                                 <h3 class="text-center">Login</h3>
                                 <br>
-                                <form class="" method="POST" action="">
+                                <form class="" method="POST" action="" id="userLogin">
                                     <input type='hidden' name='form_key' id='form_key' value="<?php
                                     $session->createSession("login_form_key", $formKey->generateKey());
                                     echo $session->getSessionData("login_form_key");?>" />
@@ -152,7 +152,7 @@ if(isset($_POST['form_key'])){
         <script src="js/jquery-validation/dist/additional-methods.min.js"></script>
         <script>
             $(function() {
-                var form = $('#userSignup');
+                var form = $('#userLogin');
                 form.validate({
                     errorElement: 'label',
                     rules : {
