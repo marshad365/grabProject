@@ -42,19 +42,15 @@
                         <a href=""><i class="fa fa-bell-o" style="font-size:20px;font-weight:bold;"></i></a> 
                     </li>
                     <li>
-                        <?php $ab=0; if($ab==1){?>
-                        <a href="login.php">Login/Signup <i class="fa fa-arrow-right"></i></a>
-                        <?php }else{ ?>
                         <a class='site-nav-sub'><i class='fa fa-angle-down site-nav-arrow'></i>
                             <img class='img-circle' src="../images/user-profile/user.jpg" style='width:33px;max-height:33px;' />&nbsp;
-                            <span>Company</span>
+                            <span><?php $company->getName();?></span>
                         </a>
                         <ul class="com-heads header-drop-box boxed-shd">
                             <li><a href=""><i class="fa fa-user"></i>&nbsp; Company Profile</a></li>
                             <li><a href=""><i class="fa fa-cog"></i>&nbsp; Settings</a></li>
                             <li><a href="../logout.php"><i class="fa fa-sign-out"></i>&nbsp; Logout</a></li>
                         </ul>
-                        <?php } ?>
                     </li>
                 </div>                         
             </ul>                     
