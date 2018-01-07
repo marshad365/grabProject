@@ -23,12 +23,13 @@ $invalid = false;
 if(isset($_POST['form_key'])){
     if ($formKey->validate($session->getSessionData("login_form_key"), $_POST['form_key'])){
         $invalid = false;
-        if(isset($_POST['submit']) && isset($_POST['username']) && isset($_POST['password'])){
-            $isPosted = true;
+        if(isset($_POST['submit']) && isset($_POST['username']) && isset($_POST['password']) &&
+            !empty($_POST['username']) && !empty($_POST['password'])){
             $uname=$_POST['username'];
             $password=md5($_POST['password']);
             $vc = new ValidationController();
             $vResult = $vc->validateUserLogin($uname, $password, "COMPANYORSTUDENT");
+            $isPosted = true;
             if($vResult->form_status){
                 if($vResult->userType=="COMPANY"){
                     $company->userLogin($uname, $password);
@@ -152,7 +153,7 @@ if(isset($_POST['form_key'])){
         <script src="js/jquery-validation/dist/additional-methods.min.js"></script>
         <script>
             $(function() {
-                var form = $('#userLogin');
+                var form = $('#userLogin3');
                 form.validate({
                     errorElement: 'label',
                     rules : {
