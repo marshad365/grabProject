@@ -28,7 +28,7 @@
                 <li> 
                     <a href="">MESSAGES</a> 
                 </li>
-                <div class="pull-right">  
+                <div class="pull-right" style="text-transform: none">
                     <li> 
                         <div class="comp-heads-search-box">
                             <form class="" method="POST" action="">
@@ -44,7 +44,7 @@
                     <li>
                         <a class='site-nav-sub'><i class='fa fa-angle-down site-nav-arrow'></i>
                             <img class='img-circle' src="../images/user-profile/user.jpg" style='width:33px;max-height:33px;' />&nbsp;
-                            <span><?php $company->getName();?></span>
+                            <span><?php echo $company->getUserName();?></span>
                         </a>
                         <ul class="com-heads header-drop-box boxed-shd">
                             <li><a href=""><i class="fa fa-user"></i>&nbsp; Company Profile</a></li>
