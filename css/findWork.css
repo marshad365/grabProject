@@ -1,0 +1,223 @@
+/*17-11-2017*/
+
+.find-work-search-box .find-work-search{
+    border-radius: 0;
+}
+
+.find-work-search-box .find-work-search:hover{
+    border-color:#37A000 !important;
+    outline:0;
+    -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(55,160,0,.5);
+    box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(55,160,0,.5)
+}
+
+.find-work-search-box .find-work-search:focus{
+    border-color:#37A000 !important;
+    outline:0;
+    -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(55,160,0,.5);
+    box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(55,160,0,.5)
+}
+
+.find-work-search-box .find-work-search-btn{
+    border-radius: 0;
+}
+
+.find-work-search-box .find-work-search-btn:hover{
+    border-radius: 0;
+    color:#ffffff;
+    border: 1px solid #ccc !important;
+    background-color: rgba(37, 107, 0, 0.8) !important;
+}
+/* ----------- Main Contents Start ----------- */
+
+.job-feed-options .feed-opts{
+    background: none;
+    border: 0 !important;
+}
+
+.job-feed-options a{
+    background: none;
+    border-radius: 0 !important;
+    border: none !important;
+}
+.job-feed-options a:hover{
+    color: #37A000 !important;
+    background: #ffffff !important;
+    border: none !important;
+}
+
+.job-feed-options .active{
+    background-color: #ffffff;
+    color:#37A000;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    border-left: 3px solid #37A000 !important;
+    
+}
+.job-feed-options .active:hover{
+    background-color: #ffffff !important;
+    color:#37A000;
+    box-shadow: none;
+    border-left: 3px solid #37A000 !important;
+    
+}
+
+
+/* Feed Categories */
+
+.categories-head{
+    margin: 0 15px;
+}
+
+.job-feed-categories .feed-opts{
+    background: none;
+    border: 0 !important;
+}
+
+.job-feed-categories a{
+    background: none;
+    color: #37A000 !important;
+    border-radius: 0 !important;
+    border: none !important;
+}
+.job-feed-categories a:hover{
+    color: #2e2e2e !important;
+    background: none !important;
+    border: none !important;
+}
+
+.job-feed-categories .active{
+    background-color: #ffffff;
+    color:#37A000;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    border-left: 3px solid #37A000 !important;
+}
+.job-feed-categories .active:hover{
+    background-color: #ffffff !important;
+    color:#37A000;
+    box-shadow: none;
+    border-left: 3px solid #37A000 !important;
+    
+}
+
+.job-feed-categories-edit{
+    margin: 10px 20px;
+}
+
+/* ----------- Job Feeds Start ----------- */
+
+.job-feeds-panel h3{
+    margin-left:10px;
+}
+
+.job-feeds-contents{
+    padding-left:10px;
+    border-bottom: 1px solid #e7e7e7;
+    margin:15px 0;
+}
+
+.job-feeds-contents:last-child{
+    border-bottom: none !important;
+}
+
+.job-feeds-contents .job-save-btn{
+    margin-top: 8px;
+}
+
+.client-details .client-rating{
+    font-size: 11px;
+    margin:0 8px;
+}
+
+.client-details .rating-plus{
+    color:#37A000 !important;
+}
+
+.payment-verified{
+    color:#3ABBFF;
+}
+
+/* ----------- End Job Feeds ----------- */
+
+
+/* ----------- Job Feed Profile Start ----------- */
+
+.job-feed-porfile{
+    margin-bottom: 10px;
+}
+
+.job-feed-porfile img{
+    margin: 0 5px;
+}
+
+.job-feed-porfile span{
+    font-size:15px;
+    font-weight: bold;
+}
+
+.profile-private{
+    padding-left:15px;
+}
+
+.job-profile-progress-bar{
+    background-color: #37A000;
+    padding:0 60px;
+    margin-right:10px;
+    /*width: 120px;*/
+}
+
+
+.job-feed-proposals{
+    margin-top: 40px;
+}
+
+.job-feed-proposals p{
+    margin: 20px 0;
+}
+
+/* ----------- Job Feed Profile End ----------- */
+
+
+
+/*.btn-main-link{
+    background-color: #ffffff;
+    color:#37A000;
+    padding:10px 30px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 8px rgba(0, 0, 0, .3);
+}
+.btn-main-link:hover{
+    background-color: #37A000 !important;
+    color:#ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: none;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+}
+
+
+.btn-circle .btns{
+    background-color: #ffffff;
+    padding:5px;
+    width:30px;
+    text-align: center;
+    border: none;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+}
+
+.btn-circle .btns:hover{
+    box-shadow: none;
+    border: 1px solid #37A000 !important;
+}
+
+.btn-circle .btns:focus{
+    border: 0 !important;
+}
+*/
