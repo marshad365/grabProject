@@ -80,13 +80,17 @@ if(isset($_POST['form_key'])){
                                     <input type='hidden' name='form_key' id='form_key' value="<?php
                                     $session->createSession("login_form_key", $formKey->generateKey());
                                     echo $session->getSessionData("login_form_key");?>" />
+                                    <?php if($isPosted && !$vResult->form_status){?>
+                                        <div class="form-group">
+                                            <div id="error-alert" class=" alert alert-danger">
+                                                <i class="fa fa-remove-sign"></i>
+                                                <?php echo $vResult->validation_status; ?>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+
 									<div class="form-group">
-                                        <?php if($isPosted && !$vResult->form_status){
-                                            if(!empty($vResult->validation_status)){
-                                                echo '<label class="valid-errors">'.$vResult->validation_status.'</label>';
-                                            }
-                                        }?>
-										<div class="input-group">
+                                       <div class="input-group">
 											<span class="input-group-addon input-types-icons"><i class="fa fa-user"></i></span>
 											<input type="text" class="form-control input-types" name="username" id="username" placeholder="Username">
 										</div>
@@ -153,6 +157,9 @@ if(isset($_POST['form_key'])){
         <script src="js/jquery-validation/dist/additional-methods.min.js"></script>
         <script>
             $(function() {
+                $("#error-alert").fadeTo(1300, 300).slideUp(300, function(){
+                    $("#error-alert").slideUp(300);
+                });
                 var form = $('#userLogin3');
                 form.validate({
                     errorElement: 'label',
