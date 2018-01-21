@@ -11,7 +11,7 @@
         <link href="../css/font-awesome.min.css" rel="stylesheet">
     </head>     
     <body> 
-        <?php require "../inc/header.php"; ?>         
+        <?php require "header.php"; ?>
         <!-- END Site Header -->         
         <div id="page-wrappers"> 
             <!-- Section Porposal -->             
