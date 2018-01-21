@@ -1,4 +1,19 @@
-<!DOCTYPE html> 
+<?php
+require_once('../classes/classSessionManager.php');
+require_once('../classes/classCompany.php');
+$session = new sessionManager();
+$company = new Company($session);
+if($session->isSessionExists("company_info") && !empty($session->getSessionData("company_info"))){
+    $company = unserialize($session->getSessionData("company_info"));
+}
+if(!$company->getLoginStatus() || !$session->isSessionExists("company_info")){
+    header('location:../login.php');
+}
+$user_name=$company->getUserName();
+$email=$company->getUserEmail();
+$picture = $company->getUserPicture();
+?>
+<!DOCTYPE html>
 <html lang="en"> 
     <head> 
         <meta charset="utf-8"> 
