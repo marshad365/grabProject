@@ -3,7 +3,7 @@
 	class databaseManager {
 		private $dns='mysql:host=localhost;dbname=grab_project;charset=utf8';
 		private $username='root';
-		private $password='';
+		private $password='root';
 		private $db_conn=NULL;
 		function __construct(){
 			try {   
