@@ -9,7 +9,6 @@ if($session->isSessionExists("company_info")){
 }else if($session->isSessionExists("student_info")){
 
 }
-
 if($company->getLoginStatus() && $session->isSessionExists("company_info")){
     header('location:company/myjob.php');
 }else if(true){

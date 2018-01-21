@@ -1,26 +1,3 @@
-.form-group {
-    margin-bottom: 5px;
-}
-/* ---------------- Check CSS of Elements ------------------- */
-
-.x
-{
-    border: 1px dashed #FF1600 !important;
-}
-
-.b
-{
-    background-color: #CCBFB8 !important;
-}
-
-.c
-{
-    color: #00CC1F !important;
-    text-decoration: underline !important;
-}
-
-/* -------------- End Check CSS of Elements ----------------- */
-
 body
 {
     color: #454e59;
@@ -309,7 +286,6 @@ header
     padding: 20px 0;
     min-width: 320px;
     background-color: #ffffff;
-    text-transform: uppercase;
     z-index: 1000;
     border-bottom: 1px solid rgba(0, 0, 0, .1);
     -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .5);
@@ -331,7 +307,7 @@ a.site-logo
     display: block;
     float: left;
     color: #2e2e2e;
-    margin-right:10px;
+    margin-right:10px; 
     font-size: 20px;
     height: 42px;
     line-height: 42px;
@@ -468,7 +444,7 @@ a.site-logo > i
 }*/
 
 .com-heads-search-box{
-
+    
 }
 
 
@@ -646,13 +622,13 @@ a.site-logo > i
         margin: auto;
     }
     .get-started-area {
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-wrap: wrap;
-        flex-wrap: wrap;
-        -webkit-align-content: center;
-        align-content: center;
-    }
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-webkit-align-content: center;
+		align-content: center;
+	}
     .home-carousel-captions  h1
     {
         font-size: 1.2em;
@@ -732,7 +708,7 @@ a.site-logo > i
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     transition: all .3s ease;
-    -webkit-backface-visibility: unset;
+    -webkit-backface-visibility: none;
     height: auto;
 }
 
@@ -774,9 +750,9 @@ a.site-logo > i
 /* Small Devices, Tablets */
 
 @media only screen and (min-width : 768px){
-
-
-
+	
+	
+	
 }
 
 /* Medium Devices, Desktops */
@@ -796,9 +772,9 @@ a.site-logo > i
 /* Large Devices, Wide Screens */
 
 @media only screen and (min-width : 1200px){
-
-
-
+	
+	
+	
 }
 
 /* ----------- End Categoies ----------- */
@@ -1035,13 +1011,13 @@ a.site-logo > i
 
 /* ----------------my job page start  ------------------- */
 .post_title{
-    font-size: 250%;
+	font-size: 250%;
 }
 .postbtn{
-    margin-left: 800px;
+	margin-left: 800px;
 }
 .m1{
-    margin-left:10px;
+	margin-left:10px;
 }
 
 
@@ -1049,17 +1025,17 @@ a.site-logo > i
 
 /* ----------------post 1 start  ------------------- */
 .post1{
-    margin-right:10px;
+	margin-right:10px;
 }
 
 .bg{
-    background-color:white;
+	background-color:white;
 }
 .margin{
-    margin-left:50px;
+	margin-left:50px;
 }
 .verticalLine {
-    border-left: 2px solid black;
+  border-left: 2px solid black;
 }
 
 /* -------------- post 1 page end ----------------- */
@@ -1077,42 +1053,42 @@ a.site-logo > i
 
 @media only screen and (max-width:425px)
 {
-    /*#homeCarousel{
-            min-height:200px;
-            max-height:200px;
-        }
-        .slider-carousel-wraper{
-            min-height:200px;
-            max-height:200px;
-        }*/
+/*#homeCarousel{
+		min-height:200px;
+		max-height:200px;
+	}
+	.slider-carousel-wraper{
+		min-height:200px;
+		max-height:200px;
+	}*/
 }
 
 @media only screen and (max-width:767px)
 {
-    /*#homeCarousel{
-            min-height:200px;
-            max-height:200px;
-        }
-        .slider-carousel-wraper{
-            min-height:200px;
-            max-height:200px;
-        }*/
+/*#homeCarousel{
+		min-height:200px;
+		max-height:200px;
+	}
+	.slider-carousel-wraper{
+		min-height:200px;
+		max-height:200px;
+	}*/
 }
 
 /* Small devices, Tablets (>767px) */
 
 @media screen and (min-width: 768px)
 {
-    /*#homeCarousel{
-            min-height:500px;
-            max-height:500px;
-        }
-
-        .slider-carousel-wraper{
-            min-height:500px;
-            max-height:500px;
-        }*/
-    /* Forms */
+/*#homeCarousel{
+		min-height:500px;
+		max-height:500px;
+	}
+    
+    .slider-carousel-wraper{
+		min-height:500px;
+		max-height:500px;
+	}*/
+/* Forms */
     .form-bordered
     {
         margin-left: -20px;
@@ -1128,7 +1104,7 @@ a.site-logo > i
         padding-left: 5px;
         padding-right: 5px;
     }
-    /* Tabs */
+/* Tabs */
     .nav-tabs > li > a
     {
         padding-left: 15px;
@@ -1142,7 +1118,7 @@ a.site-logo > i
 
 @media screen and (min-width: 992px)
 {
-    /* Header */
+/* Header */
     header
     {
         -webkit-transform: translateZ(0);
@@ -1150,7 +1126,7 @@ a.site-logo > i
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
     }
-    /* Menu */
+/* Menu */
     .site-nav
     {
         position: static;
@@ -1200,7 +1176,7 @@ a.site-logo > i
     {
         margin: 0 -20px 0 0;
     }
-    /* Header Scroll */
+/* Header Scroll */
     header.header-scroll .site-nav
     {
         margin-top: 0;
@@ -1225,7 +1201,7 @@ a.site-logo > i
     {
         border-top-left-radius: 0;
     }
-    /* Submenu */
+/* Submenu */
     .site-nav li:hover > ul
     {
         display: block;
@@ -1261,3 +1237,74 @@ a.site-logo > i
         background-color: #282d33;
     }
 }
+
+
+
+
+/* ----------- New CSS Start - 20/01/2018 ----------- */
+
+.main-boxs
+{
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+}
+
+.wh-box
+{
+    background-color:#fff !important;
+}
+
+.job-menu{
+    background: #37A000 !important ;
+    
+}
+
+.arr {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 45px;
+    height: 43px;
+    margin-top:-31px;
+    margin-left: 242px;
+    background: #fff;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    border-right: 2px solid #E1E1E1;
+    border-bottom: 2px solid #E1E1E1;
+}
+
+.arrac {
+    width: 30px;
+    height: 60px;
+    margin-left: 242px;
+    position:absolute;
+    z-index: 999;
+    margin-top:-40px;
+    border-left: solid 30px #37A000;
+    border-bottom: solid 30px transparent;
+    border-top: solid 30px transparent;
+}
+.cont{
+    height:60px; 
+    padding:20px;
+    position:relative;
+    z-index: 1;
+    /*background: rgb(200,30,50);*/
+}
+
+.cont-active{
+    background:#37A000;
+    color:#fff !important;
+}
+.cont-active .txt{
+    background:#37A000;
+    color:#fff !important;
+}
+
+
+
+/* ----------- End New CSS ----------- */
