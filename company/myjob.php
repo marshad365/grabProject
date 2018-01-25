@@ -43,11 +43,8 @@ $picture = $company->getUserPicture();
                                     <div class="row" style="margin-top:5px;">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                            <a href="" class="btn btn-main-link-gr pull-right" >Post a New job</a>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                            <a href="" class="btn btn-main-link-gr " >Rehire a freelancer </a>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <a href="postJobs.php" class="btn btn-main-link-gr btn-hv pull-right" >Post a New job</a>
                                         </div>
                                     </div>
                                 </div>
@@ -127,9 +124,8 @@ $picture = $company->getUserPicture();
         <!-- Footer Start -->         
         <?php require "../inc/footer.php"; ?>          
         <!-- End Footer -->         
-                
+        <script src="../js/jquery.js"></script>
         <script src="../js/bootstrap.min.js"></script>         
-        <script src="../js/app.js"></script>         
-        <script src="../js/dragFiles.js"></script>      
+        <script src="../js/app.js"></script>
     </body>     
 </html>

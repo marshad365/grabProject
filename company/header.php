@@ -1,8 +1,7 @@
-<header> 
-    <div class="container"> 
-        <a href="index.html" class="site-logo"> 
-            <img src="" alt="" width="50" /> 
-            <strong>Grab Project</strong> 
+<header style="padding: 13px 0px;position: relative">
+    <div class="container" >
+        <a href="myjob.php" class="site-logo">
+            <img src="../images/logo.png" alt="" width="200px" style="margin-top: -5px;"/>
         </a>                 
         <!-- Site Navigation -->                 
         <nav> 

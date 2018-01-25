@@ -34,13 +34,11 @@ $picture = $company->getUserPicture();
                 <div class="container">
                     <br>
                     <div class="row">
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-2">
                             <h3>Post a Project</h3>
                             <br>
                             <!-- Account summary -->
-                            <div class="panel panel-default">
+                            <div class="panel panel-default" style="margin: 0">
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
@@ -118,18 +116,15 @@ $picture = $company->getUserPicture();
                                 </div>
                                 <div class="panel-footer">
                                     <br>
-                                    <center><button type="button" name="" class="btn-main-gr btn-hv btn-create-account">Post</button></center>
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-lg-offset-4 col-md-offset-4 col-sm-offset-4">
+                                            <center><button type="button" name="" class="btn btn-block btn-main-gr btn-hv btn-create-account">Post</button></center>
+                                        </div>
+                                    </div>
                                     <br>
                                 </div>
                             </div>
-                            <br>
-                            <br>
-                            <br>
                         </div>
-                        <!-- Profile Settings End -->
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        </div>
-                        <br>
                     </div>
                     <br>
                 </div>
@@ -142,20 +137,20 @@ $picture = $company->getUserPicture();
         <?php require "../inc/footer.php"; ?>          
         <!-- End Footer -->         
                 
-        <!--<script src="../js/jquery.js"></script>-->         
-        <script src="../js/bootstrap.min.js"></script>         
-        <script src="../js/app.js"></script>         
+        <!--<script src="../js/jquery.js"></script>-->
+        <script src="../js/jquery.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/app.js"></script>
         <script src="../js/dragFiles.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script>
         $(document).ready(function(){
             var i=1;
             $("#skills").keypress(function(e){
-                var a = $("#skills").val();
-            	if(e.which == 13 && a!=""){
+                var a = $(this).val();
+            	if(e.which === 32 && a!==""){
                 	$("#tagBox").append("<div class='btn btn-sm' style='margin:5px;background:#E0E0E0;'>"+a+"</div>");
-                    $("#skills").val("");
-                }else if(e.which == 13 && a==""){
+                    $(this).val("");
+                }else if(e.which === 32 && a===""){
                     alert("Please enter skills needed!");
                 }
             });
