@@ -57,7 +57,7 @@ $picture = $company->getUserPicture();
                                     <div class="account-summary-contents">
                                         <div class="form-horizontal" method="POST" action="">
                                             <div class="row">
-                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
                                                     <div class="form-groups">
                                                         <label for="input1" class="form-label">Name your project posting</label>
                                                         <input type="text" class="form-control input-types" name="porject_name" placeholder="Name of project">
@@ -65,7 +65,7 @@ $picture = $company->getUserPicture();
                                                     <br>
                                                     <div class="form-groups">
                                                         <label for="input1" class="form-label">Describe the work to be done</label>
-                                                        <textarea class="form-control input-types" rows="3" id="projectDetails" name="projectDetails" placeholder="Enter work description..."></textarea>
+                                                        <textarea class="form-control input-types" rows="10" id="projectDetails" name="projectDetails" placeholder="Enter work description..."></textarea>
                                                         <p class="pull-right" style="margin-top:10px;">500 characters left</p>
                                                     </div>
                                                     <br><br><br>
@@ -88,24 +88,11 @@ $picture = $company->getUserPicture();
                                                     </div>
                                                     <br>
                                                     <div class="form-groups">
-                                                        <label for="input1" class="form-label">Project Time Duration</label>
-                                                        <select class="form-control input-types" name="projectTime">
-                                                            <option value="1">More Than 6 Months</option>
-                                                            <option value="2">3 to 6 Months</option>
-                                                            <option value="3">1 to 3 Months</option>
-                                                            <option value="4">Less Than 1 Month</option>
-                                                            <option value="5">Less Than 1 Week</option>
-                                                        </select>
-                                                    </div>
-                                                    <br>
-                                                    <div class="form-groups">
                                                         <label for="input1" class="form-label">Skills Needed</label>
                                                         <div id="tagBox"></div><br>
                                                         <input type="text" class="form-control input-types" id="skills" name="skills" placeholder="Enter your skills">
                                                     </div>
                                                     
-                                                </div>
-                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                 </div>
                                             </div>
                                             
