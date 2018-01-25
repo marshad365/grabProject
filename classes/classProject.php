@@ -151,10 +151,22 @@ class Project {
         $query = "SELECT project_id, project_name, project_post_date, project_company_id, project_des, 
                     project_budget, project_last_update, project_status FROM  project WHERE project_company_id=?";
         if($data = $dbCon->executeQuery($query, array($id), 'cread')){
+            return $data;
+        }
+        return false;
+    }
+
+    public function getProjectDetails($id){
+        $dbCon = new databaseManager();
+        $query = "SELECT project_id AS 'ID', project_name AS 'Title', project_post_date 'Posted', 
+                  project_company_id AS 'Company', project_des AS 'Desc', project_budget AS 'Budget', 
+                  project_last_update AS 'Updated', project_status AS 'Status' FROM  project WHERE project_id=?";
+        if($data = $dbCon->executeQuery($query, array($id), 'cread')){
             return $data[0];
         }
         return false;
     }
+
 
 
 }

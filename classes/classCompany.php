@@ -6,6 +6,7 @@
  * Time: 10:34 PM
  */
 require_once ("classDatabaseManager.php");
+require_once ("classProject.php");
 require_once("interfaces.php");
 class Company implements User{
     //company_id, company_email, company_username, company_pwd, company_name, company_dec, company_contact,
@@ -25,6 +26,7 @@ class Company implements User{
     private $company_login_status;
     private $sessionManager = null;
     private $sessionArray = null;
+    private $project=null;
     function __construct($sessionManager){
         $this->company_id = null;
         $this->company_email = null;
@@ -41,6 +43,7 @@ class Company implements User{
         $this->company_login_status = false;
         $this->sessionManager = $sessionManager;
         $this->sessionArray = array();
+        $this->project = new Project();
     }
 
     public function setUserName($uname){
@@ -116,6 +119,9 @@ class Company implements User{
     }
     public function addToSession($name){
         $this->sessionArray[] = $name;
+    }
+    public function getCompanyProject() {
+        return $this->project;
     }
     /* Common Functions */
     public function registerCompany(){
@@ -310,4 +316,6 @@ class Company implements User{
         }
 
     }
+
+
 }
