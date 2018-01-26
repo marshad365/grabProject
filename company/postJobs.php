@@ -59,13 +59,15 @@ $picture = $company->getUserPicture();
                                             <div class="row">
                                                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
                                                     <div class="form-groups">
-                                                        <label for="input1" class="form-label">Name your project posting</label>
-                                                        <input type="text" class="form-control input-types" name="porject_name" placeholder="Name of project">
+                                                        <label class="form-label">Name your project posting<span style="color:red;margin-left:5px;">*</span></label>
+                                                        <input type="text" class="form-control input-types" id = "porject_name" name="porject_name" placeholder="Name of project">
+                                                        <label for="porject_name" class="valid-errors">Something Wrong</label>
                                                     </div>
                                                     <br>
                                                     <div class="form-groups">
-                                                        <label for="input1" class="form-label">Describe the work to be done</label>
+                                                        <label class="form-label">Describe the work to be done<span style="color:red;margin-left:5px;">*</span></label>
                                                         <textarea class="form-control input-types" rows="10" id="projectDetails" name="projectDetails" placeholder="Enter work description..."></textarea>
+                                                        <label for="projectDetails" class="valid-errors">Something Wrong</label>
                                                         <p class="pull-right" style="margin-top:10px;">500 characters left</p>
                                                     </div>
                                                     <br><br><br>
@@ -78,7 +80,7 @@ $picture = $company->getUserPicture();
                                                     </div>
                                                     <br>
                                                     <div class="form-groups">
-                                                        <label for="input1" class="form-label">Project Category</label>
+                                                        <label for="input1" class="form-label">Project Category<span style="color:red;margin-left:5px;">*</span></label>
                                                         <select class="form-control input-types" name="projectCats">
                                                             <option value="1">Web Development</option>
                                                             <option value="2">Web Designing</option>
@@ -88,7 +90,7 @@ $picture = $company->getUserPicture();
                                                     </div>
                                                     <br>
                                                     <div class="form-groups">
-                                                        <label for="input1" class="form-label">Skills Needed</label>
+                                                        <label for="input1" class="form-label">Skills Needed<span style="color:red;margin-left:5px;">*</span></label>
                                                         <div id="tagBox"></div><br>
                                                         <input type="text" class="form-control input-types" id="skills" name="skills" placeholder="Enter your skills">
                                                     </div>
