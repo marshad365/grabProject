@@ -1,6 +1,7 @@
 <?php
 require_once('../classes/classSessionManager.php');
 require_once('../classes/classCompany.php');
+require_once ('../classes/classProject.php');
 $session = new sessionManager();
 $company = new Company($session);
 if($session->isSessionExists("company_info") && !empty($session->getSessionData("company_info"))){
@@ -12,6 +13,7 @@ if(!$company->getLoginStatus() || !$session->isSessionExists("company_info")){
 $user_name=$company->getUserName();
 $email=$company->getUserEmail();
 $picture = $company->getUserPicture();
+$project = new Project();
 ?>
 <!DOCTYPE html>
 <html lang="en"> 
@@ -82,10 +84,11 @@ $picture = $company->getUserPicture();
                                                     <div class="form-groups">
                                                         <label for="input1" class="form-label">Project Category<span style="color:red;margin-left:5px;">*</span></label>
                                                         <select class="form-control input-types" name="projectCats">
-                                                            <option value="1">Web Development</option>
-                                                            <option value="2">Web Designing</option>
-                                                            <option value="3">Mobile App Development</option>
-                                                            <option value="4">Desktop Softwares</option>
+                                                            <?php
+                                                                foreach ($project->getProjectCatagory()->getAllCatagories()  as $key =>$value){
+                                                                    echo '<option value="'.$value['IDS'].'">'.$value['Title'].'</option>';
+                                                                }
+                                                            ?>
                                                         </select>
                                                     </div>
                                                     <br>
