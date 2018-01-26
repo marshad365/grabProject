@@ -351,8 +351,37 @@ class ValidationController{
 		}
         return $validationResult;
 	}
-	public function validPostProject($title, $desc, ){
 
+    /**
+     * @param $title
+     * @param $desc
+     * @return stdClass
+     */
+    public function validPostProject($title, $desc){
+        $validationResult = new stdClass;
+        $validationResult->title_status = "";
+        $validationResult->desc_status = "";
+        $validationResult->form_status = false;
+        $title_flag = false;
+        $desc_flag = false;
+        if($this->isValidName($title)){
+            $validationResult->title_status="";
+            $title_flag = true;
+        }else{
+            $validationResult->title_status="Invalid or empty project title";
+            $title_flag = false;
+        }
+        if($this->isValidDescription($desc)){
+            $validationResult->desc_status = "";
+            $desc_flag = true;
+        }else{
+            $validationResult->desc_status = "Invalid or empty project desc";
+            $desc_flag = false;
+        }
+        if($desc_flag && $title_flag){
+            $validationResult->form_status = true;
+        }
+        return $validationResult;
     }
 	public function validateEmail($email, $type){
 		$validationResult = new stdClass;
@@ -494,6 +523,14 @@ class ValidationController{
     private function isValidUsername($uName){
         $usernamePattern = "/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/";
         if (!empty($uName) && (preg_match($usernamePattern, $uName) === 1)) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    private function isValidDescription($desc){
+        $pattern = "/^[0-9a-z A-ZäöüÄÖÜ_\-']+$/";
+        if(!empty($desc) && (preg_match($pattern, $desc)===1)){
             return true;
         }else{
             return false;
