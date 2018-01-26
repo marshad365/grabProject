@@ -6,13 +6,7 @@ class ValidationController{
 	function __CONSTRUCT(){
 		$this->dbCon = new databaseManager();
 	}
-	function validatePhoneNumber($number) {
-		$formats = array('###-###-####', '####-###-###','(###) ###-###', '####-####-####','(###) ###-####','(###) ####-####','##-###-####-####', '####-####', '###-###-###','#####-###-###', '###########', '##########', '#########', '############','# ### #####', '#-### #####');
-
-		return in_array(trim(preg_replace('/[0-9]/', '#', $number)), $formats);
-	}
-	
-	public function validateCompanyProfileUpdate(){/* Here $famer is an object of farmer class */
+    public function validateCompanyProfileUpdate(){/* Here $famer is an object of farmer class */
 		$validationResult = new stdClass;
 		$validationResult->fname_status = "";
 		$validationResult->phone_status = "";
@@ -25,37 +19,37 @@ class ValidationController{
 		$address_flag=false;
 		$phone_flag=false;
 		$regex='/^[a-zA-Z][a-zA-Z ]*$/';
-		
+
 		if ((preg_match($regex, $farmer->getUserName()) === 1) && !empty($farmer->getUserName())) {
-			$validationResult->fname_status = "";	
+			$validationResult->fname_status = "";
 			$fname_flag = true;
 		}else{
-			$validationResult->fname_status = "Invalid / Empty first name!";	
+			$validationResult->fname_status = "Invalid / Empty first name!";
 			$fname_flag = false;
 		}
-		
+
 		$regex='/[\pL\pN\p{Pc}\p{Pd}]+/';
 		if ((preg_match($regex, $farmer->getFarmerAddress()) === 1) || empty($farmer->getFarmerAddress())) {
-			$validationResult->address_status = "";	
+			$validationResult->address_status = "";
 			$address_flag = true;
 		}else{
-			$validationResult->address_status = "Invalid address value!";	
+			$validationResult->address_status = "Invalid address value!";
 			$address_flag = false;
 		}
 		if ($this->validatePhoneNumber($farmer->getUserContact())) {
-			$validationResult->phone_status = "";	
+			$validationResult->phone_status = "";
 			$phone_flag = true;
 		}else{
-			$validationResult->phone_status = "Invalid Phone Number formate (123) 123-1234 !";	
+			$validationResult->phone_status = "Invalid Phone Number formate (123) 123-1234 !";
 			$phone_flag = false;
 		}
 		if($phone_flag && $address_flag && $fname_flag){
 			$validationResult->form_status = true;
 		}
 		return $validationResult;
-		
+
 	}
-	public function validateAdminProfile($Name, $email){
+    public function validateAdminProfile($Name, $email){
 		/* testing values for variables */
 		if($this->debugFlag){
 			// testing variable goes here
@@ -66,7 +60,7 @@ class ValidationController{
 		$validationResult->form_status = false;
 		$name_flag=false;
 		$email_flag=false;
-		
+
 		$regex='/^[a-zA-Z][a-zA-Z ]*$/';
 		if ((preg_match($regex, $Name) === 1) && !empty($Name)) {
 			$validationResult->name_status = "";
@@ -93,7 +87,7 @@ class ValidationController{
 		}
 		return $validationResult;
 	}
-	public function validateCompanySignup($fname, $lname, $email){
+    public function validateCompanySignup($fname, $lname, $email){
 		if($this->debugFlag){
 
 		}
@@ -102,12 +96,12 @@ class ValidationController{
 		$validationResult->lname_status = "";
 		$validationResult->email_status = "";
 		$validationResult->form_status = false;
-		
+
 		$fname_flag=false;
 		$lname_flag=false;
 		$email_flag=false;
 
-		// this regex only allows text with spaces			
+		// this regex only allows text with spaces
         if ($this->isValidName($fname)) {
 			$validationResult->fname_status = "";
             $fname_flag = true;
@@ -129,7 +123,7 @@ class ValidationController{
             $validationResult->email_status = "Invalid or empty  email address!";
             $email_flag = true;
         }
-		
+
 		if($fname_flag && $lname_flag && $email_flag){
 			$validationResult->form_status = true;
 		}else{
@@ -199,19 +193,19 @@ class ValidationController{
         }
         return $validationResult;
     }
-	public function validateResetPasswordLink($email, $hash, $userType){
+    public function validateResetPasswordLink($email, $hash, $userType){
 		$validationResult = new stdClass;
 		$validationResult->validation_status = "";
 		$validationResult->form_status = false;
 		$link_flag = false;
-		
+
 		if(empty($email) || empty($hash)){
 			//$obj->getPassword()."<br>";
-			$validationResult->validation_status = "Your link is not valid!";	
+			$validationResult->validation_status = "Your link is not valid!";
 			$link_flag = false;
 			/* echo "password_flage=".$password_flag."<br>"; */
 		}else{
-			$validationResult->validation_status = "";	
+			$validationResult->validation_status = "";
 			$link_flag = true;
 		}
 		if($link_flag){
@@ -234,47 +228,47 @@ class ValidationController{
 		}
 		return $validationResult;
 	}
-	public function validateUserNewPassword($newPassword, $passwordConfirm){		
+    public function validateUserNewPassword($newPassword, $passwordConfirm){
 		$validationResult = new stdClass;
 		$validationResult->validation_status = "";
 		$validationResult->form_status = false;
 		$password_flag = false;
-		
+
 		if(empty($passwordConfirm) || empty($newPassword)){
 			//$obj->getPassword()."<br>";
-			$validationResult->validation_status = "Password must be entered";	
+			$validationResult->validation_status = "Password must be entered";
 			$password_flag = false;
 			/* echo "password_flage=".$password_flag."<br>"; */
 		}else{
 			if($newPassword === $passwordConfirm){
-				$validationResult->validation_status = "";	
-				$password_flag = true;	
+				$validationResult->validation_status = "";
+				$password_flag = true;
 			}else{
-				$validationResult->validation_status = "Sorry! your password doesn't match.";	
-				$password_flag = true;	
+				$validationResult->validation_status = "Sorry! your password doesn't match.";
+				$password_flag = true;
 			}
 		}
 		if($password_flag){
 			$validationResult->form_status= true;
 		}
-		
+
 		return $validationResult;
 	}
-	public function validateUserLogin($username, $password, $userType){
+    public function validateUserLogin($username, $password, $userType){
 		$validationResult = new stdClass;
 		$validationResult->username_status = "";
 		$validationResult->validation_status = "";
 		$validationResult->password_status = "";
 		$validationResult->form_status = false;
 		$emailPattern = '/^(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){255,})(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){65,}@)(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22))(?:\\.(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22)))*@(?:(?:(?!.*[^.]{64,})(?:(?:(?:xn--)?[a-z0-9]+(?:-+[a-z0-9]+)*\\.){1,126}){1,}(?:(?:[a-z][a-z0-9]*)|(?:(?:xn--)[a-z0-9]+))(?:-+[a-z0-9]+)*)|(?:\\[(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){7})|(?:(?!(?:.*[a-f0-9][:\\]]){7,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?)))|(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){5}:)|(?:(?!(?:.*[a-f0-9]:){5,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3}:)?)))?(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))(?:\\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))){3}))\\]))$/iD';
-		
+
 		$usernamePattern = "/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/";
 		//echo "form status mein to hun";
 		$username_flag = false;
 		$password_flag = false;
-		
+
 		if ($this->isValidEmail($username) || $this->isValidUsername($username)) {
-			$validationResult->username_status = "";	
+			$validationResult->username_status = "";
 			$username_flag = true;
 			/* echo "Usernam_flage=".$username_flag."<br>"; */
 		}else{
@@ -286,20 +280,20 @@ class ValidationController{
 			$validationResult->password_status = "Invalid or empty password";
 			$password_flag = false;
 		}else{
-			$validationResult->password_status = "";	
+			$validationResult->password_status = "";
 			$password_flag = true;
 		}
-		
-		
+
+
 		if($username_flag && $password_flag  ){
-			$validationResult->form_status = true;	
+			$validationResult->form_status = true;
 		}
 		if($validationResult->form_status){
             switch ($userType){
 				case "Admin":
 					$query = "SELECT COUNT(*) AS numb from admin WHERE admin_email=? AND admin_password=?";
 					if($data = $this->dbCon->executeQuery($query, array($username, $password), 'cread')){
-						if($data[0]['numb']>0){						
+						if($data[0]['numb']>0){
 							$validationResult->form_status = true;
 						}else{
 							$validationResult->validation_status = "Invalid Username or Password!";
@@ -351,7 +345,6 @@ class ValidationController{
 		}
         return $validationResult;
 	}
-
     /**
      * @param $title
      * @param $desc
@@ -383,7 +376,8 @@ class ValidationController{
         }
         return $validationResult;
     }
-	public function validateEmail($email, $type){
+
+    public function validateEmail($email, $type){
 		$validationResult = new stdClass;
 		$validationResult->validation_status = "";
 		$validationResult->form_status = false;
@@ -398,9 +392,9 @@ class ValidationController{
             $email_flag = false;
         }
 		if($email_flag ){
-			$validationResult->form_status = true;	
+			$validationResult->form_status = true;
 		}
-		
+
 		switch($type){
 			case "Admin":
 				if($validationResult->form_status){
@@ -412,7 +406,7 @@ class ValidationController{
 							$validationResult->validation_status = "Sorry! this email is not registered.";
 							$validationResult->form_status = false;
 						}
-					}				
+					}
 				}else{
 					$validationResult->form_status = false;
 				}
@@ -443,10 +437,10 @@ class ValidationController{
 				echo "invalid user type";
 			break;
 		}
-		
+
 		return $validationResult;
 	}
-	private function isValidName($name){
+    private function isValidName($name){
         $regex='/^[a-zA-Z][a-zA-Z ]*$/';
         if ((preg_match($regex, $name) === 1) && !empty($name)) {
             return true;
@@ -454,8 +448,7 @@ class ValidationController{
             return false;
         }
     }
-
-	private function isValidEmail($email){
+    private function isValidEmail($email){
         $emailPattern = '/^(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){255,})(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){65,}@)(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22))(?:\\.(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22)))*@(?:(?:(?!.*[^.]{64,})(?:(?:(?:xn--)?[a-z0-9]+(?:-+[a-z0-9]+)*\\.){1,126}){1,}(?:(?:[a-z][a-z0-9]*)|(?:(?:xn--)[a-z0-9]+))(?:-+[a-z0-9]+)*)|(?:\\[(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){7})|(?:(?!(?:.*[a-f0-9][:\\]]){7,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?)))|(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){5}:)|(?:(?!(?:.*[a-f0-9]:){5,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3}:)?)))?(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))(?:\\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))){3}))\\]))$/iD';
         if (!empty($email) && preg_match($emailPattern, $email) === 1) {
             return true;
@@ -463,6 +456,7 @@ class ValidationController{
             return false;
         }
     }
+
     public function isValidPassword($pwd1, $pwd2){
 	    if($pwd1 === $pwd2){
 	        return true;
@@ -585,6 +579,11 @@ class ValidationController{
                 return "NOTSTUDENT";
             }
         }
+    }
+    private function validatePhoneNumber($number) {
+        $formats = array('###-###-####', '####-###-###','(###) ###-###', '####-####-####','(###) ###-####','(###) ####-####','##-###-####-####', '####-####', '###-###-###','#####-###-###', '###########', '##########', '#########', '############','# ### #####', '#-### #####');
+
+        return in_array(trim(preg_replace('/[0-9]/', '#', $number)), $formats);
     }
 }
 
