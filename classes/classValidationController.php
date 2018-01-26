@@ -6,49 +6,7 @@ class ValidationController{
 	function __CONSTRUCT(){
 		$this->dbCon = new databaseManager();
 	}
-    public function validateCompanyProfileUpdate(){/* Here $famer is an object of farmer class */
-		$validationResult = new stdClass;
-		$validationResult->fname_status = "";
-		$validationResult->phone_status = "";
-		$validationResult->address_status = "";
-		$validationResult->form_status = false;
-		if($this->debugFlag){
-			var_dump($farmer);
-		}
-		$fname_flag=false;
-		$address_flag=false;
-		$phone_flag=false;
-		$regex='/^[a-zA-Z][a-zA-Z ]*$/';
 
-		if ((preg_match($regex, $farmer->getUserName()) === 1) && !empty($farmer->getUserName())) {
-			$validationResult->fname_status = "";
-			$fname_flag = true;
-		}else{
-			$validationResult->fname_status = "Invalid / Empty first name!";
-			$fname_flag = false;
-		}
-
-		$regex='/[\pL\pN\p{Pc}\p{Pd}]+/';
-		if ((preg_match($regex, $farmer->getFarmerAddress()) === 1) || empty($farmer->getFarmerAddress())) {
-			$validationResult->address_status = "";
-			$address_flag = true;
-		}else{
-			$validationResult->address_status = "Invalid address value!";
-			$address_flag = false;
-		}
-		if ($this->validatePhoneNumber($farmer->getUserContact())) {
-			$validationResult->phone_status = "";
-			$phone_flag = true;
-		}else{
-			$validationResult->phone_status = "Invalid Phone Number formate (123) 123-1234 !";
-			$phone_flag = false;
-		}
-		if($phone_flag && $address_flag && $fname_flag){
-			$validationResult->form_status = true;
-		}
-		return $validationResult;
-
-	}
     public function validateAdminProfile($Name, $email){
 		/* testing values for variables */
 		if($this->debugFlag){
