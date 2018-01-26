@@ -13,6 +13,10 @@ class Skill {
     private $skill_status;
     private $skill_added_date;
     private $skill_last_update;
+
+    /**
+     * Skill constructor.
+     */
     public function __construct() {
         $this->sk_id = 0;
         $this->skill_title = null;
@@ -21,15 +25,30 @@ class Skill {
         $this->skill_last_update = null;
     }
 
+    /**
+     * @param $id:int
+     */
     public function setSkillID($id){
         $this->sk_id = $id;
     }
+
+    /**
+     * @param $title:string
+     */
     public function setSkillTitle($title){
         $this->skill_title = $title;
     }
+
+    /**
+     * @param $status:int
+     */
     public function setSkillStatus($status){
         $this->skill_status = $status;
     }
+
+    /**
+     * sets added data by current datatime
+     */
     public function setSkillAddedDate(){
         $this->skill_added_date = date('Y-m-d H:i:s', time());
     }
@@ -69,6 +88,9 @@ class Skill {
         return $this->skill_last_update;
     }
 
+    /**
+     * @return bool
+     */
     public function addSkill(){
         $dbCon = new databaseManager();
         $query = "INSERT INTO skill(skill_title, skill_status, skill_added_date) VALUES (?, ?, ?)";
@@ -81,6 +103,9 @@ class Skill {
         }
     }
 
+    /**
+     * @return bool
+     */
     public function updateSkill(){
         $dbCon = new databaseManager();
         $query = "UPDATE skill SET skill_title=?, skill_status=? WHERE sk_id=?";
@@ -93,6 +118,9 @@ class Skill {
         }
     }
 
+    /**
+     * @return bool
+     */
     public function deleteSkill(){
         $dbCon = new databaseManager();
         $query = "DELETE FROM skill WHERE sk_id=?";
@@ -103,6 +131,9 @@ class Skill {
         }
     }
 
+    /**
+     * @return array|bool|string
+     */
     public function getAllSkills(){
         $dbCon = new databaseManager();
         $query = "SELECT sk_id AS 'ID', skill_title AS 'Title', skill_status AS 'Status', 
@@ -114,6 +145,32 @@ class Skill {
         }
     }
 
+
+    /**
+     * @param $projectId
+     * @param $skills
+     * @param $dbCon
+     * @return bool
+     */
+    public function addProjectRequiredSkills($projectId, $skills, $dbCon){
+        $executed = true;
+        if(!empty($skills)){
+            $query = "INSERT INTO req_skill(project_id, skill_id) VALUES (?, ?)";
+            foreach ($skills as $skill){
+                if($dbCon->executeQuery($query, array($projectId, $skill), 'create')){
+                    continue;
+                }else{
+                    $executed = false;
+                    break;
+                }
+            }
+        }
+        return $executed;
+    }
+    /**
+     * @param $projectID
+     * @return array|bool|string
+     */
     public function getProjectRequiredSkills($projectID){
         $dbCon = new databaseManager();
         $query = "SELECT skill_id AS 'ID', skill_title AS 'Title' FROM skill, req_skill 
@@ -125,6 +182,10 @@ class Skill {
         }
     }
 
+    /**
+     * @param $studentID
+     * @return array|bool|string
+     */
     public function getStudentSkills($studentID){
         $dbCon = new databaseManager();
         $query = "SELECT skill_id AS 'ID', skill_title AS 'Title' FROM skill, skill_std 

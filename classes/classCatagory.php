@@ -80,7 +80,9 @@ class Catagory {
         return $this->cat_last_update;
     }
 
-
+    /**
+     * @return bool
+     */
     public function addCatagory(){
         $dbCon = new databaseManager();
         $query = "INSERT INTO catagory(cat_title, cat_status, cat_added_date) VALUES (?, ?, ?)";
@@ -93,6 +95,9 @@ class Catagory {
         }
     }
 
+    /**
+     * @return bool
+     */
     public function updateCatagory(){
         $dbCon = new databaseManager();
         $query = "UPDATE catagory SET cat_title=?, cat_status=? WHERE cat_id=?";
@@ -105,6 +110,9 @@ class Catagory {
         }
     }
 
+    /**
+     * @return bool
+     */
     public function deleteCatagory(){
         $dbCon = new databaseManager();
         $query = "DELETE FROM catagory WHERE cat_id=?";
@@ -115,6 +123,9 @@ class Catagory {
         }
     }
 
+    /**
+     * @return array|bool|string
+     */
     public function getAllCatagories(){
         $dbCon = new databaseManager();
         $query = "SELECT cat_id AS 'ID', cat_title AS 'Title', cat_status AS 'Status', 
@@ -126,15 +137,6 @@ class Catagory {
         }
     }
 
-    public function getProjectCatagory($projectID){
-        $dbCon = new databaseManager();
-        $query = "SELECT cat_id AS 'ID', cat_title AS 'Title' FROM catagory, project 
-                  WHERE project_id = ? AND cat_id = project_cat";
-        if($data = $dbCon->executeQuery($query, array($projectID), 'cread')){
-            return $data;
-        }else{
-            return false;
-        }
-    }
+
 
 }
