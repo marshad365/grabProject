@@ -55,7 +55,6 @@ class ValidationController{
 		return $validationResult;
 		
 	}
-	
 	public function validateAdminProfile($Name, $email){
 		/* testing values for variables */
 		if($this->debugFlag){
@@ -94,7 +93,6 @@ class ValidationController{
 		}
 		return $validationResult;
 	}
-
 	public function validateCompanySignup($fname, $lname, $email){
 		if($this->debugFlag){
 
@@ -236,7 +234,6 @@ class ValidationController{
 		}
 		return $validationResult;
 	}
-	
 	public function validateUserNewPassword($newPassword, $passwordConfirm){		
 		$validationResult = new stdClass;
 		$validationResult->validation_status = "";
@@ -263,8 +260,7 @@ class ValidationController{
 		
 		return $validationResult;
 	}
-	
-	function validateUserLogin($username, $password, $userType){		
+	public function validateUserLogin($username, $password, $userType){
 		$validationResult = new stdClass;
 		$validationResult->username_status = "";
 		$validationResult->validation_status = "";
@@ -355,7 +351,9 @@ class ValidationController{
 		}
         return $validationResult;
 	}
+	public function validPostProject($title, $desc, ){
 
+    }
 	public function validateEmail($email, $type){
 		$validationResult = new stdClass;
 		$validationResult->validation_status = "";

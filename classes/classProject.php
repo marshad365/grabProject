@@ -7,7 +7,8 @@
  */
 require_once ('classDatabaseManager.php');
 class Project {
-    //project_id, project_name, project_post_date, project_company_id, project_des, project_budget, project_last_update, project_status
+    //project_id, project_name, project_post_date, project_company_id, project_des, project_cat,
+    // project_last_update, project_status,
     private $project_id;
     private $project_title;
     private $project_desc;
@@ -92,8 +93,8 @@ class Project {
     public function postProject(){
         //project_id, project_name, project_post_date, project_company_id, project_des, project_budget, project_last_update, project_status
         $dbCon = new databaseManager();
-        $query = "INSERT INTO project(project_name, project_post_date, project_company_id, project_des, project_status ) 
-                  VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO project(project_name, project_post_date, project_company_id, project_des, project_cat, 
+                    project_status ) VALUES (?, ?, ?, ?, ?, ?)";
         $dbCon->startTransaction();
         $subSkillExecuted = false;
         $subAttachementsExecuted = false;
@@ -101,6 +102,7 @@ class Project {
             $this->project_post_date,
             $this->project_company_id,
             $this->project_desc,
+            $this->project_catagory,
             $this->project_status)), 'create')){
             $lastInsertId = $data[0]['project_id'];
             if(!empty($this->project_skills)){
@@ -138,7 +140,7 @@ class Project {
 
     public function getAllProjects(){
         $dbCon = new databaseManager();
-        $query = "SELECT project_id, project_name, project_post_date, project_company_id, project_des, 
+        $query = "SELECT project_id, project_name, project_post_date, project_company_id, project_des, project_cat, 
                     project_budget, project_last_update, project_status FROM project";
         if($data = $dbCon->executeQuery($query, array(0), 'sread')){
             return $data;
@@ -148,7 +150,7 @@ class Project {
 
     public function getCompanyProjects($id){
         $dbCon = new databaseManager();
-        $query = "SELECT project_id, project_name, project_post_date, project_company_id, project_des, 
+        $query = "SELECT project_id, project_name, project_post_date, project_company_id, project_des, project_cat, 
                     project_budget, project_last_update, project_status FROM  project WHERE project_company_id=?";
         if($data = $dbCon->executeQuery($query, array($id), 'cread')){
             return $data;
@@ -159,8 +161,9 @@ class Project {
     public function getProjectDetails($id){
         $dbCon = new databaseManager();
         $query = "SELECT project_id AS 'ID', project_name AS 'Title', project_post_date 'Posted', 
-                  project_company_id AS 'Company', project_des AS 'Desc', project_budget AS 'Budget', 
-                  project_last_update AS 'Updated', project_status AS 'Status' FROM  project WHERE project_id=?";
+                  project_company_id AS 'Company', project_des AS 'Desc', project_cat AS 'Catagory', 
+                  project_budget AS 'Budget',project_last_update AS 'Updated', project_status AS 'Status' 
+                  FROM  project WHERE project_id=?";
         if($data = $dbCon->executeQuery($query, array($id), 'cread')){
             return $data[0];
         }
