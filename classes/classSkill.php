@@ -96,7 +96,7 @@ class Skill {
     public function deleteSkill(){
         $dbCon = new databaseManager();
         $query = "DELETE FROM skill WHERE sk_id=?";
-        if($data = $dbCon->executeQuery($query, array($this->sk_id), 'update')){
+        if($data = $dbCon->executeQuery($query, array($this->sk_id), 'delete')){
             return true;
         }else{
             return false;
@@ -107,7 +107,7 @@ class Skill {
         $dbCon = new databaseManager();
         $query = "SELECT sk_id AS 'ID', skill_title AS 'Title', skill_status AS 'Status', 
                   skill_added_date AS 'ADDED', skill_last_update AS 'UPDATED' FROM skill";
-        if($data = $dbCon->executeQuery($query, array($this->sk_id), 'update')){
+        if($data = $dbCon->executeQuery($query, array(0), 'sread')){
             return $data;
         }else{
             return false;
@@ -118,7 +118,7 @@ class Skill {
         $dbCon = new databaseManager();
         $query = "SELECT skill_id AS 'ID', skill_title AS 'Title' FROM skill, req_skill 
                   WHERE project_id = ? AND skill_id = sk_id";
-        if($data = $dbCon->executeQuery($query, array($projectID), 'update')){
+        if($data = $dbCon->executeQuery($query, array($projectID), 'cread')){
             return $data;
         }else{
             return false;
@@ -129,7 +129,7 @@ class Skill {
         $dbCon = new databaseManager();
         $query = "SELECT skill_id AS 'ID', skill_title AS 'Title' FROM skill, skill_std 
                   WHERE std_id = ? AND skill_id = sk_id";
-        if($data = $dbCon->executeQuery($query, array($studentID), 'update')){
+        if($data = $dbCon->executeQuery($query, array($studentID), 'cread')){
             return $data;
         }else{
             return false;
